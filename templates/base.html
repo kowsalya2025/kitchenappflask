@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flavour Theory</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar py-1 px-5">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/Group 42.png') }}" alt="Logo" height="150">
+
+            </div>
+            <ul class="nav-links fs-2">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                
+                
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="programsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Programs
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="programsDropdown">
+                <li><a class="dropdown-item" href="{{ url_for('program1') }}">BAKERY BUSSINESS <br>ACCELETATOR PROGRAM</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('program2') }}">CLOUD KITCHEN <br>ACCELERATOR PROGRAM</a></li>
+               
+            </ul>
+        </li>
+                <li><a href="{{ url_for('courses') }}">Courses</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+            <a href="{{ url_for('login') }}" class="bold text-dark fs-3 text-decoration-none text-center loginbtnhome">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    <footer style="background-color: #d77f68; color: white; padding: 40px 20px; border-radius: 40px 40px 0 0;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; max-width: 1200px; margin: auto;">
+            
+            <!-- Logo Section -->
+            <div>
+                <img src="{{ url_for('static', filename='images/Group 42.png') }}" alt="Logo" style="width: 200px;">
+                <p style="font-family: cursive; font-size: 20px;">Flavour Theory</p>
+            </div>
+
+            <!-- Links -->
+            <div>
+                <h4 class="p-1">HOME</h4>
+                <a href="{{ url_for('about') }}" class="text-decoration-none text-white fs-5">About Us</a><br>
+                <a href="{{ url_for('program1') }}" class="text-decoration-none text-white fs-5">Bakery Business <br>Accelerator Program</a>
+                <a href="{{ url_for('program2') }}" class="text-decoration-none text-white fs-5">Cloud Kitchen <br>Accelerator Program</a>
+                <a href="{{ url_for('courses') }}" class="text-decoration-none text-white fs-5">Courses</a>
+            </div>
+
+            <div>
+                <h4>COURSES</h4>
+                <p>The Good Gut Program</p>
+                <p>Food Look Good</p>
+                <p>Strat Your Food Business (Non Veg & Veg)</p>
+                <p>Immunity Booster Recipes</p>
+                <p>Vegetarian’s Delight</p>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h4>CONTACT</h4>
+                <p>FLOVERTHEORY ACADEMY<br>1234, Olive Street,<br>Chennai - 021</p>
+                <p><strong>Email:</strong> info@flovertheoryacademy.in</p>
+                <p><strong>Phone:</strong> 044-987 6785 5677</p>
+
+                <h4>FOLLOW US</h4>
+                <span>Instagram | Google | Facebook | YouTube</span>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

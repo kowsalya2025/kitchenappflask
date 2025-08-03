@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h3 class="mb-4 text-center">Enrollment Form</h3>
+      <form action="{{ url_for('submit_payment') }}" method="POST" class="border p-4 shadow rounded bg-light">
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input type="text" name="name" class="form-control" id="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" name="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="tel" name="phone" class="form-control" id="phone" required>
+        </div>
+        <div class="mb-3 text-end">
+          <a href="{{ url_for('login') }}" class="text-decoration-none">Already have an account?</a>
+        </div>
+
+        <hr>
+
+        <div class="mb-3">
+          <label class="form-label fw-bold">Subtotal:</label>
+          <p class="form-control-plaintext">₹36,000.00</p>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-bold">Discount:</label>
+          <p class="form-control-plaintext">₹0.00</p>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-bold">Total Payable:</label>
+          <p class="form-control-plaintext text-success fs-5 fw-bold">₹36,000.00</p>
+        </div>
+
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary">Submit & Payment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

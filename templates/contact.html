@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+  .fade-in {
+    animation: fadeInUp 1s ease-out both;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .form-container {
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+  .img-container img {
+    max-height: 500px;
+    border-radius: 12px;
+  }
+</style>
+
+<div class="container my-5">
+  <div class="row align-items-center justify-content-center">
+    <!-- Contact Form -->
+    <div class="col-md-6 fade-in">
+      <div class="form-container">
+        <h2 class="mb-4 text-center">Contact Us</h2>
+        <form method="POST">
+          {{ form.hidden_tag() }}
+          
+          <div class="mb-3">
+            <label>Requester</label>
+            {{ form.requester(class="form-control") }}
+          </div>
+          <div class="mb-3">
+            <label>Subject</label>
+            {{ form.subject(class="form-control") }}
+          </div>
+          <div class="mb-3">
+            <label>Description</label>
+            {{ form.description(class="form-control", rows="4") }}
+          </div>
+          <div class="form-check mb-3">
+            {{ form.not_robot(class="form-check-input") }}
+            <label class="form-check-label">I am not a robot</label>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <button type="submit" name="submit" class="btn btn-primary">{{ form.submit.label }}</button>
+            <button type="submit" name="cancel" class="btn btn-secondary">{{ form.cancel.label }}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Image Column -->
+    <div class="col-md-6 text-center fade-in img-container">
+      <img src="{{ url_for('static', filename='images/logini.png') }}" alt="Contact Image" class="img">
+    </div>
+  </div>
+</div>
+{% endblock %}
